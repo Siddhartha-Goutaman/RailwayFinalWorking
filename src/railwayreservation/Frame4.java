@@ -154,6 +154,7 @@ public class Frame4 extends javax.swing.JFrame {
                 st.executeUpdate("Insert into cancellation (name,ticketno) values('" + str + "'," + tno + ")");
                // Statement st1=con.createStatement();
                // res = st1.executeQuery(stmt);
+               //
                 st.executeUpdate("DELETE from book where ticketno = " + inttno);
                 JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
                 flag = 1;
