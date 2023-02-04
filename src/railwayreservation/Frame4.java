@@ -155,7 +155,16 @@ public class Frame4 extends javax.swing.JFrame {
                // Statement st1=con.createStatement();
                // res = st1.executeQuery(stmt);
                //
+                String s = "select traino from book where ticketno='" +tno+ "'";
+                ResultSet rs=st.executeQuery(s);
+                rs.next();
+                String train=rs.getString(1);
+                s="select avseat from reservation where trainno = '" +train+ "'";
+                rs=st.executeQuery(s);
+                rs.next();
+                int av=rs.getInt(1)+1;
                 st.executeUpdate("DELETE from book where ticketno = " + inttno);
+                st.executeUpdate("update reservation set avseat = '" +av+ "' where trainno = '" +train+ "'");
                 JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
                 flag = 1;
             } 
