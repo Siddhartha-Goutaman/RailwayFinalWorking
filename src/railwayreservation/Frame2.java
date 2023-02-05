@@ -263,7 +263,6 @@ public class Frame2 extends javax.swing.JFrame {
                 tno = 2;
                 pat.setString(11, "T002");
             }
-            //System.out.println("hi");
             if (tno == 1) {
                 String si = "select sno from traindet where train1 ='" + start + "'";
                 String di = "select sno from traindet where train1 ='" + end + "'";
@@ -271,9 +270,6 @@ public class Frame2 extends javax.swing.JFrame {
                 ResultSet rSet = st.executeQuery(x1);
                 if(rSet.next())
                 a1 = rSet.getInt(1);
-                //System.out.println("T1 " + a1);
-                //System.out.println(si+"\n"+di);
-                 
                 Statement st2=con.createStatement();
                 ResultSet res = st2.executeQuery(si);
                
@@ -284,7 +280,6 @@ public class Frame2 extends javax.swing.JFrame {
                 ResultSet rest = st3.executeQuery(di);
                 if(rest.next())
                 desti = Integer.parseInt(rest.getString(1));
-                //System.out.println("Completed");
                 a1--;
                 
             }
@@ -311,12 +306,9 @@ public class Frame2 extends javax.swing.JFrame {
             else if(a2==-1 && tno==2) JOptionPane.showMessageDialog(null,"No seats left in train T002");
             else {
             pat.setInt(9, far);
-           // System.out.println(pat);
             pat.executeUpdate();
-           // System.out.println("query executed");
-            //pat.executeUpdate();
             if (tno == 1) {
-                JOptionPane.showMessageDialog(null, "Ticket booked successfully\nYour TICKET NUMBER is " + ticketno + "\nTRAIN NUMBER IS T001");
+                JOptionPane.showMessageDialog(null, "Ticket booked successfully\nYour Ticket Number: " + ticketno + "\nTrain Number: T001\nFare: "+far);
                 String upAv = "update reservation set avseat = '" + a1 + "' where trainno = 'T001'";
                 Statement st2 = con.createStatement();
                 st2.executeUpdate(upAv);
@@ -325,7 +317,7 @@ public class Frame2 extends javax.swing.JFrame {
                 f1.setVisible(true);
             }
             if (tno == 2) {
-                JOptionPane.showMessageDialog(null, "Ticket booked successfully\nYour TICKET NUMBER is " + ticketno + "\nTRAIN NUMBER IS T002");
+                JOptionPane.showMessageDialog(null, "Ticket booked successfully\nYour Ticket Number: " + ticketno + "\nTrain Number: T002\nFare: "+far);
                 String upAv = "update reservation set avseat = '" + a2 + "' where trainno = 'T002'";
                 Statement st2=con.createStatement();
                 st2.executeUpdate(upAv);
