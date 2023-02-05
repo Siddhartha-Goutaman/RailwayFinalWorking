@@ -208,7 +208,7 @@ public class Frame2 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lRoute, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbRoute, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(20, 20, 20)
                         .addComponent(bBook2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)))
@@ -263,7 +263,7 @@ public class Frame2 extends javax.swing.JFrame {
                 tno = 2;
                 pat.setString(11, "T002");
             }
-            System.out.println("hi");
+            //System.out.println("hi");
             if (tno == 1) {
                 String si = "select sno from traindet where train1 ='" + start + "'";
                 String di = "select sno from traindet where train1 ='" + end + "'";
@@ -271,7 +271,7 @@ public class Frame2 extends javax.swing.JFrame {
                 ResultSet rSet = st.executeQuery(x1);
                 if(rSet.next())
                 a1 = rSet.getInt(1);
-                System.out.println("T1 " + a1);
+                //System.out.println("T1 " + a1);
                 //System.out.println(si+"\n"+di);
                  
                 Statement st2=con.createStatement();
@@ -305,7 +305,7 @@ public class Frame2 extends javax.swing.JFrame {
                 desti = rest.getInt(1);
                 a2--;
             }
-            far = (desti - starti) * 37;
+            far = (desti - starti) * 50;
             if(far < 0) JOptionPane.showMessageDialog(null, "Cannot go from "+start+" to "+end+" via this route.");
             else if(a1==-1 && tno==1) JOptionPane.showMessageDialog(null,"No seats left in train T001");
             else if(a2==-1 && tno==2) JOptionPane.showMessageDialog(null,"No seats left in train T002");

@@ -144,7 +144,7 @@ public class Frame0 extends javax.swing.JFrame {
             pat.setString(2, pswdText.getText());
             rs = pat.executeQuery();
             if (rs.next()) {
-                statusLabel.setText("Login successful!");
+                //statusLabel.setText("Login successful!");
                 Frame1 f1 = new Frame1();
                 f1.setVisible(true);
                 this.setVisible(false);
