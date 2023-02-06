@@ -65,8 +65,8 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="bExit1" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="bCancel" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="bExit1" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="bCancel" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="529" max="-2" attributes="0"/>
                               </Group>

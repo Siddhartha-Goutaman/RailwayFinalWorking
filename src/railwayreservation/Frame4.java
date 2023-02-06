@@ -125,7 +125,7 @@ public class Frame4 extends javax.swing.JFrame {
         int tno = 0;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "password");
             st = con.createStatement();
 

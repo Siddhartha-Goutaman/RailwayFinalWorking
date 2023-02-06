@@ -220,7 +220,7 @@ public class Frame3 extends javax.swing.JFrame {
             ticketNo = tfTicketNo.getText();
             int tno = Integer.parseInt(ticketNo);
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "password");
             st = con.createStatement();
             String sr = "select name,traino,fare,start,ending from book where ticketno =  " + tno;
