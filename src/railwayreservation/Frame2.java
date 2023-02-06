@@ -1,13 +1,8 @@
 package railwayreservation;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Random;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Frame2 extends javax.swing.JFrame {
 
@@ -237,8 +232,7 @@ public class Frame2 extends javax.swing.JFrame {
         int tno = 0;
         int far, starti = 0, desti = 0;
         int a1 = 0, a2 = 0;
-        String route;
-        route = cbRoute.getSelectedItem().toString();
+        String route=cbRoute.getSelectedItem().toString();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -290,7 +284,6 @@ public class Frame2 extends javax.swing.JFrame {
                 ResultSet rSet = st.executeQuery(x2);
                 if(rSet.next())
                 a2 = rSet.getInt(1);
-                System.out.println("T2" + a2);
 
                 ResultSet res = st.executeQuery(si);
                 res.next();

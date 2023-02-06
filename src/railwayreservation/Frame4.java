@@ -1,9 +1,6 @@
 package railwayreservation;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class Frame4 extends javax.swing.JFrame {
@@ -135,7 +132,7 @@ public class Frame4 extends javax.swing.JFrame {
             name = tfName4.getText();
             ticketNo = tfTicketNo4.getText();
 
-            int z = 0;
+            int flag = 0;
             int inttno = Integer.parseInt(ticketNo);
             rs = st.executeQuery("select * from book");
             while (rs.next()) {
@@ -144,14 +141,13 @@ public class Frame4 extends javax.swing.JFrame {
                 if (tno == inttno) {
                     str = rs.getString("name");
                     if (str.equalsIgnoreCase(name)) {
-                        z++;
+                        flag=1;
                         break;
                     }
                 }
             }
-            int flag=0;
-            if (z > 0) {
-                st.executeUpdate("Insert into cancellation (name,ticketno) values('" + str + "'," + tno + ")");
+            if (flag == 1) {
+                st.executeUpdate("Insert into cancellation values('" + str + "'," + tno + ")");
                // Statement st1=con.createStatement();
                // res = st1.executeQuery(stmt);
                //
@@ -159,12 +155,8 @@ public class Frame4 extends javax.swing.JFrame {
                 ResultSet rs=st.executeQuery(s);
                 rs.next();
                 String train=rs.getString(1);
-                s="select avseat from reservation where trainno = '" +train+ "'";
-                rs=st.executeQuery(s);
-                rs.next();
-                int av=rs.getInt(1)+1;
                 st.executeUpdate("DELETE from book where ticketno = " + inttno);
-                st.executeUpdate("update reservation set avseat = '" +av+ "' where trainno = '" +train+ "'");
+                st.executeUpdate("update reservation set avseat = avseat+1 where trainno = '" +train+ "'");
                 JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
                 flag = 1;
             } 

@@ -1,16 +1,10 @@
 package railwayreservation;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import javax.swing.*;
 
 public class Frame0 extends javax.swing.JFrame {
 
-    private String user = "";
-    private String pswd = "";
     Statement st;
     Connection con = null;
     ResultSet rs = null;
@@ -144,13 +138,12 @@ public class Frame0 extends javax.swing.JFrame {
             pat.setString(2, pswdText.getText());
             rs = pat.executeQuery();
             if (rs.next()) {
-                //statusLabel.setText("Login successful!");
                 Frame1 f1 = new Frame1();
                 f1.setVisible(true);
                 this.setVisible(false);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Inavlid Login");
+                JOptionPane.showMessageDialog(null, "Invalid Login");
 
             }
         } catch (Exception e) {
